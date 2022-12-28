@@ -1,0 +1,1 @@
+$('.switch').on('click', function (e) { $(this).toggleClass('dark') })
