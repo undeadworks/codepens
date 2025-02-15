@@ -5,7 +5,8 @@
 }
 
 :root {
-    --mobile-with: calc(100vw - 60px);
+    --item-preview-width: 60px;
+    --mobile-with: calc(100vw - var(--item-preview-width));
 }
 
 body {
@@ -13,10 +14,26 @@ body {
     height: 100vh;
 }
 
-iframe[name="mapFrame"] {
-    width: var(--mobile-with);
-}
-
 iframe[name="mapFrameAlt"] {
     display: none !important;
+}
+
+iframe[name="mapFrame"] {
+    width: var(--mobile-with) !important;
+    position: fixed;
+    bottom: 50px;
+}
+
+iframe[name="itemFrame"] {
+    position: fixed;
+    top: 0;
+    height: 100vh !important;
+    left: calc(100vw - var(--item-preview-width));
+    width: var(--item-preview-width) !important;
+}
+
+iframe[name="chatformFrame"] {
+    width: var(--mobile-with) !important;
+    position: fixed;
+    bottom: 0;
 }
