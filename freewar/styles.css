@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --mobile-with: calc(100vw - 60px);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+iframe[name="mapFrame"] {
+    width: var(--mobile-with);
+}
+
+iframe[name="mapFrameAlt"] {
+    display: none !important;
+}
