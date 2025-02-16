@@ -9,9 +9,208 @@
     --mobile-with: calc(100vw - var(--item-preview-width));
 }
 
+
+/* freewar main */
+
+p, ul, ol, div, td, span, table, body {
+    font-family: Arial, helvetica, sans-serif;
+    font-size: 12px;
+    color: #222222;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a:link {
+    color: #CC3300;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #CC3300;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:active {
+    color: #FF3300;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #FF3300;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.brownbg {
+    background-color: #dcd3cc;
+}
+
+.medium {
+    font-size: 11px;
+}
+
+.small {
+    font-size: 10px;
+}
+
+.framemainbg {
+    margin: 10px;
+    background-image: url(../images/mainbg.jpg);
+    background-repeat: repeat-y;
+    background-position: right;
+}
+
+td.mainheader {
+    font-size: 35px;
+    background-image: url(../images/headerbg.jpg);
+}
+
+table.areadescription {
+    border: 1px solid #FFDAA9;
+    background-color: #FFF8EF;
+    width: 100%;
+}
+
+td.areadescription {
+    padding: 5px;
+}
+
+.imageborder {
+    border: 1px solid #C85424;
+    background-color: #C85424;
+    margin-right: 10px;
+    margin-bottom: 1px;
+}
+
+.input {
+    font-size: 10px;
+    background-color: #FFECD3;
+    border: 1px solid #C85424;
+}
+
+p.maincaption {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2px;
+    padding-left: 5px;
+    background-image: url(../images/headerbg.jpg);
+}
+
+p.maincaption2 {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 5px;
+    background-image: url(../images/bluebg.jpg);
+}
+
+p.maindesc1 {
+    padding: 2px;
+    padding-left: 5px;
+    background-color: #ECE9E6;
+    border: 1px solid #D6CBC2;
+    border-top: 1px;
+    width: 300px;
+}
+
+p.maindesc2 {
+    border: 1px solid #FFDAA9;
+    background-color: #FFF8EF;
+    width: 100%;
+}
+
+p.personlistcaption {
+    border: 1px solid #A2A09F;
+    font-weight: bold;
+    padding: 2px;
+    padding-left: 5px;
+    background-image: url(../images/buttonblue_bg.jpg);
+}
+
+p.itemlistcaption {
+    border: 1px solid #A2A09F;
+    font-weight: bold;
+    padding: 2px;
+    padding-left: 5px;
+    background-image: url(../images/buttonorange_bg.jpg);
+}
+
+#plantrow {
+    border: 1px solid #A2A09F;
+    font-weight: bold;
+    padding: 2px;
+    padding-left: 5px;
+    background-image: url(../images/buttongreen_bg.jpg);
+}
+
+p.listmainrow {
+    padding: 2px;
+    min-height: 55px;
+    padding-left: 5px;
+    background-color: #ECE9E6;
+    border: 1px solid #D6CBC2;
+    border-top: 0;
+}
+
+p.listusersrow {
+    padding: 2px;
+    padding-left: 5px;
+    background-color: #ECE9E6;
+    border: 1px solid #D6CBC2;
+    border-top: 0;
+}
+
+p.listplaceitemsrow {
+    padding: 2px;
+    padding-left: 5px;
+    background-color: #ECE9E6;
+    border: 1px solid #D6CBC2;
+    border-top: 0;
+}
+
+.itemmagic {
+    font-weight: bold;
+    color: #008800;
+}
+
+.aggressivenpc {
+    font-weight: bold;
+    color: #FF0000;
+}
+
+.healthmed {
+    color: #FF8000;
+}
+
+.healthok {
+    color: #309000;
+}
+
+.healthcritical {
+    color: #D20000;
+}
+
+
+/* main Body */
+
 body {
     width: 100vw;
     height: 100vh;
+}
+
+body .content {
+    text-align: left;
 }
 
 iframe[name="mapFrameAlt"] {
@@ -24,16 +223,52 @@ iframe[name="mapFrame"] {
     bottom: 50px;
 }
 
+iframe[name="mainFrame"] {
+    width: var(--mobile-with) !important;
+}
+
+
+/* item frame setting */
 iframe[name="itemFrame"] {
     position: fixed;
     top: 0;
     height: 100vh !important;
     left: calc(100vw - var(--item-preview-width));
-    width: var(--item-preview-width) !important;
+    width: var(--mobile-with) !important;
+    transition: ease-in-out all 120ms;
 }
 
+iframe[name="itemFrame"]:hover {
+    left: var(--item-preview-width);
+}
+
+
+/* chat funtkionals */
 iframe[name="chatformFrame"] {
-    width: var(--mobile-with) !important;
+    width: 100vw;
     position: fixed;
     bottom: 0;
+    left: 0;
+}
+
+iframe[name="chattextFrame"] {
+    width: 100vw;
+    position: fixed;
+    bottom: 90px;
+    left: 0;
+    height: 16px !important;
+    transition: ease-in-out all 120ms;
+}
+
+body:has(iframe[name="chatformFrame"]:hover) iframe[name="chattextFrame"] {
+    height: calc(16 * 10px) !important;
+}
+
+
+/** 
+ * Chat Frames
+**/
+
+#ChatFrameChatform form > table > tbody > tr:nth-child(1) > td {
+    display: none;
 }
